@@ -1,3 +1,5 @@
+~administrator
+~admin
 robots.txt
 app
 admin

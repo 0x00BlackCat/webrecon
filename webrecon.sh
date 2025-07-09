@@ -23,7 +23,7 @@ else
     echo -e "\033[31;5m---------------------------------------------\033[0m"
 
     for dir in $(cat lista.txt); do
-        status=$(curl -s -H "User-Agent: PentestProfissional" -o /dev/null -w "%{http_code}" $1/$dir/)
+        status=$(curl -s -H "User-Agent: PentestProfissional" -o /dev/null -w "%{http_code}" "$1/$dir/")
         if [ $status == "200" ]; then
             echo "Diretorio encontrado ---> $1/$dir/"
         fi
@@ -31,8 +31,8 @@ else
     echo -e "\033[31;5m---------------------------------------------\033[0m"
 
     for files in $(cat lista.txt); do
-        status=$(curl -s -H "User-Agent: PentestProfissional" -o /dev/null -w "%{http_code}" $1/$files)
-        status2=$(curl -s -H "User-Agent: PentestProfissional" -o /dev/null -w "%{http_code}" $1/$files.$2)
+        status=$(curl -s -H "User-Agent: PentestProfissional" -o /dev/null -w "%{http_code}" "$1/$files")
+        status2=$(curl -s -H "User-Agent: PentestProfissional" -o /dev/null -w "%{http_code}" "$1/$files.$2")
         if [ $status == "200" ]; then
             echo "Arquivo encontrado         $1/$files"
         fi
